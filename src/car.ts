@@ -1,4 +1,4 @@
-class Car {
+export class Car {
     registration_Number: string;
     colour: string;
     constructor(registrationNumber: string, colour: string)
@@ -7,5 +7,3 @@ class Car {
         this.colour = colour;   
     }
 }
-
-export default Car;

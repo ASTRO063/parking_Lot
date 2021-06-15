@@ -88,6 +88,15 @@ var ParkingLot = /** @class */ (function () {
         });
         return status;
     };
+    ParkingLot.prototype.registration_numbers_for_cars_with_colour = function (colour) {
+        var registration_nums = [];
+        this.parked_vehicles.forEach(function (vehcile, index) {
+            if (vehcile.colour === colour) {
+                registration_nums.push(vehcile.registration_Number);
+            }
+        });
+        return "" + registration_nums.join(", ");
+    };
     return ParkingLot;
 }());
 exports.ParkingLot = ParkingLot;

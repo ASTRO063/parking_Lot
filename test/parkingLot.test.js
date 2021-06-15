@@ -58,3 +58,8 @@ test("prints the parked slots along with vechiles properties", () => {
   expect(parking_lot.status()).toMatch(expected);
 });
 
+test("returns the registration numbers of cars parked , having WHITE color", () => {
+  let expected = `KA-01-HH-1234, KA-01-HH-9999`;
+  let recived = parking_lot.registration_numbers_for_cars_with_colour("White");
+  expect(recived).toMatch(expected);
+});

@@ -45,4 +45,15 @@ export class ParkingLot{
         });
         return status;
     }
+
+    registration_numbers_for_cars_with_colour(colour : string): string{
+        let registration_nums:string[]=[];
+        this.parked_vehicles.forEach((vehcile,index)=>{
+            if(vehcile.colour===colour){
+                registration_nums.push(vehcile.registration_Number);
+            }
+        })
+        return `${registration_nums.join(", ")}` ;
+    }
+
 }

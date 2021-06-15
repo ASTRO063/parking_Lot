@@ -55,5 +55,15 @@ export class ParkingLot{
         })
         return `${registration_nums.join(", ")}` ;
     }
+    slot_numbers_for_cars_with_colour(colour:string):string{
+        let slots: string[]=[];
+        this.parked_vehicles.forEach((vehcile,index)=>{
+            if(vehcile?.colour===colour){
+                index++;
+                slots.push(index.toString());
+            }
+        });
+        return `${slots.join(", ")}`;
+    }
 
 }

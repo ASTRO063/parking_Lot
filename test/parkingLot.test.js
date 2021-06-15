@@ -63,3 +63,9 @@ test("returns the registration numbers of cars parked , having WHITE color", () 
   let recived = parking_lot.registration_numbers_for_cars_with_colour("White");
   expect(recived).toMatch(expected);
 });
+
+test("returns slot numbers of car with specific colour,here White", () => {
+  let expected = `1, 2`;
+  let recived = parking_lot.slot_numbers_for_cars_with_colour("White");
+  expect(recived).toMatch(expected);
+});

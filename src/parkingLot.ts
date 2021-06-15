@@ -25,4 +25,24 @@ export class ParkingLot{
         this.parked_vehicles[slot_number-1]=vehicle;
         console.log(`Allocated slot number: ${slot_number}`);
     }
+
+    leave(slot_number:number):void{
+        if(slot_number>=1 && slot_number<=this.parking_slots){
+            delete this.parked_vehicles[slot_number-1];
+            console.log(`Slot number ${slot_number} is free`);
+        }
+    }
+    status(){
+        let status="Slot No. Registration No Colour"+"\n";
+        // console.log(label);
+        this.parked_vehicles.forEach((vehicle,index)=>{
+            if(vehicle){
+                let slot:string=(index+1).toString().padEnd(9," ");
+                let reg_num:string=vehicle.registration_Number.padEnd(16," ");
+                let colour: string=vehicle.colour;
+                status+=slot+reg_num+colour+'\n';
+            }
+        });
+        return status;
+    }
 }

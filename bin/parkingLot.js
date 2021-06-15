@@ -65,6 +65,29 @@ var ParkingLot = /** @class */ (function () {
         }
         return -1;
     };
+    ParkingLot.prototype.park = function (vehicle, slot_number) {
+        this.parked_vehicles[slot_number - 1] = vehicle;
+        console.log("Allocated slot number: " + slot_number);
+    };
+    ParkingLot.prototype.leave = function (slot_number) {
+        if (slot_number >= 1 && slot_number <= this.parking_slots) {
+            delete this.parked_vehicles[slot_number - 1];
+            console.log("Slot number " + slot_number + " is free");
+        }
+    };
+    ParkingLot.prototype.status = function () {
+        var status = "Slot No. Registration No Colour" + "\n";
+        // console.log(label);
+        this.parked_vehicles.forEach(function (vehicle, index) {
+            if (vehicle) {
+                var slot = (index + 1).toString().padEnd(9, " ");
+                var reg_num = vehicle.registration_Number.padEnd(16, " ");
+                var colour = vehicle.colour;
+                status += slot + reg_num + colour + '\n';
+            }
+        });
+        return status;
+    };
     return ParkingLot;
 }());
 exports.ParkingLot = ParkingLot;

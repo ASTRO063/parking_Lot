@@ -34,7 +34,6 @@ export class ParkingLot{
     }
     status(){
         let status="Slot No. Registration No Colour"+"\n";
-        // console.log(label);
         this.parked_vehicles.forEach((vehicle,index)=>{
             if(vehicle){
                 let slot:string=(index+1).toString().padEnd(9," ");
@@ -64,6 +63,15 @@ export class ParkingLot{
             }
         });
         return `${slots.join(", ")}`;
+    }
+    slot_number_for_registration_number(regstration_num : string){
+        for(let [i,car] of this.parked_vehicles.entries()){
+            if(car?.registration_Number.includes(regstration_num) ){
+                return i+1;
+                
+            }
+        }
+        return "Not found";
     }
 
 }

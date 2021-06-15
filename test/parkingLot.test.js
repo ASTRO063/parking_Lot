@@ -69,3 +69,16 @@ test("returns slot numbers of car with specific colour,here White", () => {
   let recived = parking_lot.slot_numbers_for_cars_with_colour("White");
   expect(recived).toMatch(expected);
 });
+
+test("returns the slot number of parked vechile,if parked", () => {
+  let expected = 2;
+  let recived =
+    parking_lot.slot_number_for_registration_number("KA-01-HH-9999");
+  expect(recived).toBe(expected);
+});
+
+test("returns 'Not found', if a vechile with registration number is not parked", () => {
+  let expected = "Not found";
+  let recived = parking_lot.slot_number_for_registration_number("KA-01-HH-900");
+  expect(recived).toMatch(expected);
+});

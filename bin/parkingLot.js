@@ -107,6 +107,25 @@ var ParkingLot = /** @class */ (function () {
         });
         return "" + slots.join(", ");
     };
+    ParkingLot.prototype.slot_number_for_registration_number = function (regstration_num) {
+        var e_2, _a;
+        try {
+            for (var _b = __values(this.parked_vehicles.entries()), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var _d = __read(_c.value, 2), i = _d[0], car = _d[1];
+                if (car === null || car === void 0 ? void 0 : car.registration_Number.includes(regstration_num)) {
+                    return i + 1;
+                }
+            }
+        }
+        catch (e_2_1) { e_2 = { error: e_2_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            }
+            finally { if (e_2) throw e_2.error; }
+        }
+        return "Not found";
+    };
     return ParkingLot;
 }());
 exports.ParkingLot = ParkingLot;

@@ -9,6 +9,7 @@ function handler(parameter:string[]){
             parking_lot=new ParkingLot(+parameter[1]);
             break;
         case "park" :
+            
             let slot:number = parking_lot.get_available_slot()
                 if(slot>=0){
                     let new_car: Car= new Car(parameter[1],parameter[2])

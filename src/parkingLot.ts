@@ -52,6 +52,10 @@ export class ParkingLot{
                 registration_nums.push(vehcile.registration_Number);
             }
         })
+        if(!registration_nums.length)
+        {
+            return "None";
+        }
         return `${registration_nums.join(", ")}` ;
     }
     slot_numbers_for_cars_with_colour(colour:string):string{
@@ -62,6 +66,10 @@ export class ParkingLot{
                 slots.push(index.toString());
             }
         });
+        if(!slots.length)
+        {
+            return "None";
+        }
         return `${slots.join(", ")}`;
     }
     slot_number_for_registration_number(regstration_num : string){

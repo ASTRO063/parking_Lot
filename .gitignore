@@ -1,2 +1,4 @@
 .Ds_Store
 node_modules
+./bin/src
+./bin/app.js
